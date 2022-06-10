@@ -6,7 +6,9 @@
     background-color: #1c1c1c;
     width: 100%;
     height: 100vh;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* NAVBAR */
@@ -17,11 +19,11 @@
     justify-content: space-between;
     align-items: center;
     height: 150px;
+    padding: 0px 40px;
 }
 
 .nav-logo {
-    width: 125px;
-    margin-left: 40px;
+    width: 100px;
 }
 
 .nav-logo img {
@@ -30,12 +32,10 @@
 
 .nav-items {
     /* background-color: red; */
-    margin-right: 40px;
 }
 
 .nav-items a {
     font-family: 'Roboto', sans-serif;
-    margin-right: 40px;
     font-size: 17px;
     cursor: pointer;
     color: #d3d3d3;
@@ -44,7 +44,11 @@
     transition: 0.25s ease-in-out;
 }
 
-.nav-items a::after {
+.nav-items a:not(#resume) {
+    margin-right: 40px;
+}
+
+.nav-items a:not(#resume)::after {
     content: '';
     position: absolute;
     background-color: #00d9ff;
@@ -56,12 +60,26 @@
     transition: 0.25s ease-in-out;
 }
 
-.nav-items a:hover::after {
+.nav-items a:not(#resume):hover::after {
     width: 100%;
 }
 
-.nav-items a:hover {
+.nav-items a:not(#resume):hover {
     color: #ffffff;
+}
+
+#resume {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-style: italic;
+    font-weight: 900;
+    border: 2px solid #ee82ee;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+#resume:hover {
+    background-color: #ee82ee;
 }
 
 /* HERO INFO */
@@ -70,31 +88,39 @@
 .hero-info {
     /* background-color: blue; */
     width: fit-content;
-    position: absolute;
-    bottom: 50px;
-    left: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
 }
 
 .socials {
     /* background-color: burlywood; */
-    width: fit-content;
+    width: 100px;
     display: flex;
+    justify-content: space-between;
     margin-left: 20px;
 }
 
-#social-icon{
+#social-icon {
     color: #d3d3d3;
     font-size: 45px;
-    padding-right: 20px;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+#social-icon:hover {
+    color: #ffffff;
+    text-shadow: 5px 0px 0px #ee82ee, 8px 0px 0px #00d9ff;
 }
 
 .fullname {
     /* background-color: coral; */
     width: fit-content;
-    font-family: 'Montserrat', sans-serif;
+    padding-right: 20px;
+    font-family: sans-serif;
     font-size: 140px;
-    font-weight: 800;
+    font-weight: 900;
     font-style: italic;
+    /* color: #ffffff; */
     -webkit-text-stroke: 2px #ffffff;
     background: url(../../img/back.png);
     -webkit-background-clip: text;
@@ -117,5 +143,5 @@
     font-size: 35px;
     font-weight: 900;
     font-style: italic;
-    /* color: transparent; */
+    margin-left: 20px;
 }

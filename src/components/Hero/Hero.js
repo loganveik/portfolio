@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../img/ljvlogo.png';
 import './Hero.css';
 
 const Hero = () => {
@@ -6,24 +7,24 @@ const Hero = () => {
         <div className="hero">
             <div className="nav">
                 <div className="nav-logo">
-                    <img src="https://www.dizpot.com/wp-content/uploads/2018/05/logo-1.svg" />
+                    <img src={logo} alt="logo" />
                 </div>
                 <div className="nav-items">
                     <a>ABOUT</a>
                     <a>PROJECTS</a>
                     <a>CONTACT</a>
-                    {/* <a id="resume">RESUME</a> */}
+                    <a  id="resume" href="https://drive.google.com/file/d/1tiXCMvwznPjx71Ui0AOhlyu4aq9BEkrNFeg01pOKaHw/view" target="_blank">Resume</a>
                 </div>
             </div>
             <div className="hero-info">
                 <div className="socials">
-                    <a><i id="social-icon" class="fa-brands fa-linkedin"></i></a>
-                    <a><i id="social-icon" class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/logan-veik-018187196/" target="_blank" rel="noreferrer"><i id="social-icon" class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/loganveik" target="_blank" rel="noreferrer"><i id="social-icon" class="fa-brands fa-github"></i></a>
                 </div>
                 <div className="fullname">
                     <p>LOGAN VEIK</p>
                 </div>
-                <div className="role">Fullstack Software Developer</div>
+                <div className="role">Frontend Software Developer</div>
             </div>
         </div>
     )
