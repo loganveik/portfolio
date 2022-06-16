@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.25s ease-in-out;
 }
 
 /* NAVBAR */
@@ -23,18 +24,24 @@
 }
 
 .nav-logo {
-    width: 100px;
+    width: 75px;
 }
 
 .nav-logo img {
     width: 100%;
 }
 
+.nav-items-mobile {
+    display: none;
+}
+
 .nav-items {
     /* background-color: red; */
 }
 
-.nav-items a {
+#about-item,
+#projects-item,
+#contact-item {
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
     cursor: pointer;
@@ -42,13 +49,12 @@
     font-weight: 400;
     position: relative;
     transition: 0.25s ease-in-out;
-}
-
-.nav-items a:not(#resume) {
     margin-right: 40px;
 }
 
-.nav-items a:not(#resume)::after {
+#about-item::after,
+#projects-item::after,
+#contact-item::after {
     content: '';
     position: absolute;
     background-color: #00d9ff;
@@ -60,11 +66,15 @@
     transition: 0.25s ease-in-out;
 }
 
-.nav-items a:not(#resume):hover::after {
+#about-item:hover::after,
+#projects-item:hover::after,
+#contact-item:hover::after {
     width: 100%;
 }
 
-.nav-items a:not(#resume):hover {
+#about-item:hover,
+#projects-item:hover,
+#contact-item:hover {
     color: #ffffff;
 }
 
@@ -76,10 +86,40 @@
     border: 2px solid #ee82ee;
     padding: 10px 20px;
     border-radius: 50px;
+    transition: 0.25s ease-in-out;
 }
 
 #resume:hover {
     background-color: #ee82ee;
+}
+
+.nav-menu {
+    display: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.nav-menu span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transform-origin: 0 0;
+    transition: 0.25s ease-in-out;
+}
+
+.nav-menu span:nth-child(2) {
+    transform: translateX(10px);
+    background-color: #ee82ee;
+}
+
+.nav-menu.active span:nth-child(2) {
+    transform: translateX(30px);
+    opacity: 0;
 }
 
 /* HERO INFO */
@@ -98,6 +138,7 @@
     display: flex;
     justify-content: space-between;
     margin-left: 20px;
+    /* background-color: aqua; */
 }
 
 #social-icon {
@@ -115,9 +156,10 @@
 .fullname {
     /* background-color: coral; */
     width: fit-content;
-    padding-right: 20px;
+    padding-right: 30px;
     font-family: sans-serif;
-    font-size: 140px;
+    font-size: 150px;
+    letter-spacing: -10px;
     font-weight: 900;
     font-style: italic;
     /* color: #ffffff; */
@@ -144,4 +186,107 @@
     font-weight: 900;
     font-style: italic;
     margin-left: 20px;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+
+@media (max-width: 950px) {
+    .nav {
+        position: relative;
+    }
+
+    .nav-menu {
+        display: block;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .nav-items-mobile {
+        background-color: aquamarine;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        transition: 0.25s ease-in-out;
+        width: 200px;
+        z-index: 100;
+        padding: 50px 0px;
+        transform: translateX(100%);
+    }
+
+    .nav-items-mobile.active {
+        transform: translateX(0%);
+    }
+
+    .nav-items-mobile a {
+        background-color: red;
+        padding: 20px 0px;
+    }
+
+    #close-mobile {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        font-size: 35px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .fullname {
+        font-size: 100px;
+        letter-spacing: 0px;
+        text-align: center;
+    }
+
+    .role {
+        font-size: 25px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 750px) {
+    .hero-info {
+        width: 100%;
+        /* margin-right: 40px; */
+        background-color: red;
+        margin-left: 0px;
+        padding: 0px 40px;
+        /* background-color: red; */
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* align-items: center; */
+    }
+
+    .fullname {
+        font-size: 75px;
+    }
+
+    .role {
+        margin-left: 0px;
+    }
+
+}
+
+@media (max-width: 650px) {
+    .socials {
+        width: 75px;
+    }
+
+    #social-icon {
+        font-size: 35px;
+    }
+
+    .fullname {
+        font-size: 75px;
+    }
+
+    .role {
+        font-size: 25px;
+    }
 }
